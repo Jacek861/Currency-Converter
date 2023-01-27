@@ -1,0 +1,17 @@
+html {
+    box-sizing: border-box;
+}
+
+*,
+::after,
+::before {
+    box-sizing: inherit;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+}
+
+.element {
+    background: center / cover no-repeat url("../images/calculatorBackground.jpg") #ccc ;
+}
