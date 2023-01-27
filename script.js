@@ -1,36 +1,51 @@
-let formElement = document.querySelector(".js-form")
-let amountElement = document.querySelector(".js-amount")
-let currencyElement = document.querySelector(".js-currency")
-let exchangeElement = document.querySelector(".js-exchange")
-
-let GBP = 5.37;
-let USD = 4.35;
-let EUR = 4.71;
-let AUD = 3.01;
-let CAD = 3.23;
-
-formElement.addEventListener("submit", (event) => {
-    event.preventDefault();
-
-    let currency = currencyElement.value;
-    let amount = amountElement.value;
-
-    switch (currency) {
-        case "GBP":
-            exchange = amount / GBP;
-            break;
-        case "USD":
-            exchange = amount / USD;
-            break;
-        case "EUR":
-            exchange = amount / EUR;
-            break;
-        case "AUD":
-            exchange = amount / AUD;
-            break;
-        case "CAD":
-            exchange = amount / CAD;
-            break;
+{
+    const welcome = () => {
+        console.log("Hello!")
     }
-    exchangeElement.value = `${exchange.toFixed(2)} ${currency}`;
-});
+    welcome()
+
+
+    const init = () => {
+        const formElement = document.querySelector(".js-form")
+        formElement.addEventListener("submit", (event) => {
+            event.preventDefault();
+
+            const currencyElement = document.querySelector(".js-currency")
+            const exchangeElement = document.querySelector(".js-exchange")
+            const amountElement = document.querySelector(".js-amount")
+
+            const amount = amountElement.value;
+            const currency = currencyElement.value;
+
+            const result = calculateResult(amount, currency)
+
+            exchangeElement.value = `${result.toFixed(2)} ${currency}`;
+        });
+    }
+    init()
+
+    const calculateResult = (amount, currency) => {
+        const GBP = 5.37;
+        const USD = 4.35;
+        const EUR = 4.71;
+        const AUD = 3.01;
+        const CAD = 3.23;
+
+        switch (currency) {
+            case "GBP":
+                return amount / GBP;
+
+            case "USD":
+                return amount / USD;
+
+            case "EUR":
+                return amount / EUR;
+
+            case "AUD":
+                return amount / AUD;
+
+            case "CAD":
+                return amount / CAD;
+        }
+    }
+}
