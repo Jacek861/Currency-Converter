@@ -11,3 +11,5 @@ Simple Online Currency Converter made as part of YouCode task.
 - HTML
 - CSS
 - JavaScript
+- BEM convention
+- ES6+ features
