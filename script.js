@@ -4,6 +4,31 @@
     };
     welcome();
 
+    const calculateResult = (amount, currency) => {
+        const GBP = 5.37;
+        const USD = 4.35;
+        const EUR = 4.71;
+        const AUD = 3.01;
+        const CAD = 3.23;
+
+        switch (currency) {
+            case "GBP":
+                return amount / GBP;
+
+            case "USD":
+                return amount / USD;
+
+            case "EUR":
+                return amount / EUR;
+
+            case "AUD":
+                return amount / AUD;
+
+            case "CAD":
+                return amount / CAD;
+        };
+    };
+
     const updateResultText = (result, currency) => {
         const exchangeElement = document.querySelector(".js-exchange");
         exchangeElement.value = `${result.toFixed(2)} ${currency}`
@@ -30,28 +55,4 @@
     };
     init();
 
-    const calculateResult = (amount, currency) => {
-        const GBP = 5.37;
-        const USD = 4.35;
-        const EUR = 4.71;
-        const AUD = 3.01;
-        const CAD = 3.23;
-
-        switch (currency) {
-            case "GBP":
-                return amount / GBP;
-
-            case "USD":
-                return amount / USD;
-
-            case "EUR":
-                return amount / EUR;
-
-            case "AUD":
-                return amount / AUD;
-
-            case "CAD":
-                return amount / CAD;
-        };
-    };
 }
