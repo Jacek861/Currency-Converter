@@ -1,28 +1,34 @@
 {
     const welcome = () => {
         console.log("Hello!")
+    };
+    welcome();
+
+    const updateResultText = (result, currency) => {
+        const exchangeElement = document.querySelector(".js-exchange");
+        exchangeElement.value = `${result.toFixed(2)} ${currency}`
     }
-    welcome()
+
+    const onFormSubmit = (event) => {
+        event.preventDefault();
+
+        const currencyElement = document.querySelector(".js-currency")
+        const amountElement = document.querySelector(".js-amount")
+        const amount = amountElement.value;
+        const currency = currencyElement.value;
+
+        const result = calculateResult(amount, currency);
+
+        updateResultText(result, currency);
+    };
 
 
     const init = () => {
-        const formElement = document.querySelector(".js-form")
-        formElement.addEventListener("submit", (event) => {
-            event.preventDefault();
+        const formElement = document.querySelector(".js-form");
 
-            const currencyElement = document.querySelector(".js-currency")
-            const exchangeElement = document.querySelector(".js-exchange")
-            const amountElement = document.querySelector(".js-amount")
-
-            const amount = amountElement.value;
-            const currency = currencyElement.value;
-
-            const result = calculateResult(amount, currency)
-
-            exchangeElement.value = `${result.toFixed(2)} ${currency}`;
-        });
-    }
-    init()
+        formElement.addEventListener("submit", onFormSubmit);
+    };
+    init();
 
     const calculateResult = (amount, currency) => {
         const GBP = 5.37;
@@ -46,6 +52,6 @@
 
             case "CAD":
                 return amount / CAD;
-        }
-    }
+        };
+    };
 }
