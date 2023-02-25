@@ -43,16 +43,13 @@
         const currency = currencyElement.value;
 
         const result = calculateResult(amount, currency);
-
         updateResultText(result, currency);
     };
 
 
     const init = () => {
         const formElement = document.querySelector(".js-form");
-
         formElement.addEventListener("submit", onFormSubmit);
     };
     init();
-
 }
